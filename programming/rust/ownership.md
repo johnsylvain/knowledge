@@ -28,8 +28,22 @@ let s2 = s1; // reference to s1 is "moved" to s2
 println!("{}, world!", s1);
 ```
 
-Stack only data is copied because they are of a fixed size.
+Data that is stored on the stack can be copied because they are of a fixed size.
 
 Function arguments behave the same way. They are invalidated when they go out of scope. Return values of functions transfer ownership the same way as complex data types.
 
+When a complex data type is passed into a function, the value moves into the function and the original variable is invalidated.
+
+```rust
+fn main() {
+  let s = String::from("hello");  // s comes into scope
+
+  takes_ownership(s);             // s's value moves into the function
+                                  // s is no longer valid here
+}
+
+fn takes_ownership(some_string: String) {
+  println!("{}", some_string);
+}
+```
 

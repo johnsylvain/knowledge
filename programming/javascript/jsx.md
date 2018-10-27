@@ -87,6 +87,6 @@ function createElement(vnode) {
     .map(createElement)
     .forEach(vnode.appendChild.bind(vnode));
 
-  return vnode;
+  return node;
 }
 ```
