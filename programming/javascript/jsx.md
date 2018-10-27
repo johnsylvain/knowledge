@@ -85,7 +85,7 @@ function createElement(vnode) {
 
   vnode.children
     .map(createElement)
-    .forEach(vnode.appendChild.bind(vnode));
+    .forEach(node.appendChild.bind(node));
 
   return node;
 }
